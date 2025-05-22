@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_FILENAME 256
+#define MAX_FILENAME 2560
 
 typedef struct {
     int caracteres;
