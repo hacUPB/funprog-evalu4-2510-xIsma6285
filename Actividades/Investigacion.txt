@@ -1,0 +1,102 @@
+// Informe: Funciones de <string.h> y <ctype.h> en C
+
+// Ejemplo de uso de strlen
+#include <stdio.h>
+#include <string.h>
+int main_strlen() {
+    char texto[] = "Hola";
+    printf("Longitud: %lu\n", strlen(texto));
+    return 0;
+}
+
+// Ejemplo de uso de strcpy
+int main_strcpy() {
+    char destino[20];
+    strcpy(destino, "Copia esto");
+    printf("%s\n", destino);
+    return 0;
+}
+
+// Ejemplo de uso de strncpy
+int main_strncpy() {
+    char destino[10];
+    strncpy(destino, "Ejemplo", 4);
+    destino[4] = '\0';
+    printf("%s\n", destino);
+    return 0;
+}
+
+// Ejemplo de uso de strcat
+int main_strcat() {
+    char a[20] = "Hola ";
+    strcat(a, "mundo");
+    printf("%s\n", a);
+    return 0;
+}
+
+// Ejemplo de uso de strncat
+int main_strncat() {
+    char a[20] = "Hola ";
+    strncat(a, "universo", 4);
+    printf("%s\n", a);
+    return 0;
+}
+
+// Ejemplo de uso de strcmp
+int main_strcmp() {
+    int r = strcmp("hola", "hola");
+    printf("%d\n", r);
+    return 0;
+}
+
+// Ejemplo de uso de strncmp
+int main_strncmp() {
+    int r = strncmp("hola", "holanda", 4);
+    printf("%d\n", r);
+    return 0;
+}
+
+// Ejemplo de uso de strchr
+int main_strchr() {
+    char *p = strchr("programa", 'g');
+    if (p) printf("Encontrado: %s\n", p);
+    return 0;
+}
+
+// Ejemplo de uso de strstr
+int main_strstr() {
+    char *p = strstr("Hola mundo", "mun");
+    if (p) printf("Subcadena encontrada: %s\n", p);
+    return 0;
+}
+
+// Ejemplo de uso de strtok
+int main_strtok() {
+    char texto[] = "uno,dos,tres";
+    char *tok = strtok(texto, ",");
+    while (tok) {
+        printf("%s\n", tok);
+        tok = strtok(NULL, ",");
+    }
+    return 0;
+}
+
+// Ejemplo de funciones de <ctype.h>
+#include <ctype.h>
+int main_ctype() {
+    if (isalpha('A')) printf("Es letra\n");
+    if (isdigit('5')) printf("Es digito\n");
+    if (isalnum('9')) printf("Es letra o digito\n");
+    if (islower('m')) printf("Es minuscula\n");
+    if (isupper('Z')) printf("Es mayuscula\n");
+    printf("%c\n", tolower('T'));
+    printf("%c\n", toupper('r'));
+    return 0;
+}
+
+// Respuestas de control:
+// 1. sizeof("Hola") = 5, strlen("Hola") = 4 por el '\0'.
+// 2. char saludo[] permite modificar, char *saludo puede apuntar a cadena constante.
+// 3. Usar strncpy/strncat para evitar overflow y verificar tamaños.
+// 4. strcspn() ayuda a eliminar '\n' con fgets.
+// 5. malloc() -> verificar NULL -> usar -> liberar con free().
